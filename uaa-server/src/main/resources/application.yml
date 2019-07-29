@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: uaa-server
+  config:
+    name: uaa-server
+  h2:
+    console:
+      enabled: true
+  datasource:
+    name: uaa-server
+    url: jdbc:h2:file:./target/h2db/db/uaa-server;DB_CLOSE_DELAY=-1
+server:
+  port: 9999
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+  instance:
+    metadata-map:
+      instanceId: ${spring.application.name}:${spring.application.instance_id}:${server.port}
+      
+     
